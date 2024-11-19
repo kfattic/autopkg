@@ -33,10 +33,10 @@
       <key>Arguments</key>
       <dict>
         <key>faux_root</key>
-        <string>/Users/munkiadmin/Library/AutoPkg/RecipeRepos/com.github.kfattic.autopkg-recipes</string>
+        <string>/Library/Receipts/XencelabsMac_1.3.4-71.pkg</string>
         <key>installs_item_paths</key>
         <array>
-          <string>/Applications/XencelabsDriver.app</string>
+          <string>XencelabsDriver.app/Contents/MacOS/Xencelabs</string>
         </array>
       </dict>
       <key>Processor</key>
@@ -61,4 +61,3 @@
     </dict>
   </array>
 </plist>
-
