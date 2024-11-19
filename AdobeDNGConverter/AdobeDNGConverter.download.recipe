@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>(https://download\.adobe\.com/pub/adobe/dng/mac/DNGConverter_[\d_]+\.dmg)</string>
+                <string>href="(https://download\.adobe\.com/pub/adobe/dng/mac/DNGConverter_\d+_\d+\.dmg)"</string>
                 <key>result_output_var_name</key>
                 <string>dmg_url</string>
             </dict>
@@ -44,6 +44,17 @@
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%pathname%/Adobe DNG Converter.app/Contents/Info.plist</string>
+                <key>plist_version_key</key>
+                <string>CFBundleShortVersionString</string>
+            </dict>
         </dict>
     </array>
 </dict>
