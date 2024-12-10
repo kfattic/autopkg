@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>AdobeDNGConverter</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://helpx.adobe.com/camera-raw/using/adobe-dng-converter.html</string>
+        <string>https://www.adobe.com/go/dng_converter_mac</string>
     </dict>
     <key>MinimumVersion</key>
     <string>1.0.0</string>
@@ -19,42 +19,22 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
-                <key>re_pattern</key>
-                <string>href="(https://download\.adobe\.com/pub/adobe/dng/mac/DNGConverter_\d+_\d+\.dmg)"</string>
-                <key>result_output_var_name</key>
-                <string>dmg_url</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%dmg_url%</string>
+                <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>DNGConverter.dmg</string>
+                <key>prefetch_filename</key>
+                <false/>
+                <key>CHECK_FILESIZE_ONLY</key>
+                <false/>
             </dict>
         </dict>
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>Versioner</string>
-            <key>Arguments</key>
-            <dict>
-                <key>input_plist_path</key>
-                <string>%pathname%/Adobe DNG Converter.app/Contents/Info.plist</string>
-                <key>plist_version_key</key>
-                <string>CFBundleShortVersionString</string>
-            </dict>
         </dict>
     </array>
 </dict>

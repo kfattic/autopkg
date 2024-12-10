@@ -9,15 +9,17 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>DNG Converter</string>
+        <string>AdobeDNGConverter</string>
         <key>MUNKI_REPO_SUBDIR</key>
-        <string>apps/%NAME%</string>
+        <string>apps/Adobe</string>
+        <key>MUNKI_REPO_PLUGIN</key>
+        <string>FileRepo</string>
+        <key>MUNKILIB_DIR</key>
+        <string>/usr/local/munki</string>
+        <key>force_munki_repo_lib</key>
+        <false/>
         <key>pkginfo</key>
         <dict>
-            <key>blocking_applications</key>
-            <array>
-                <string>Adobe DNG Converter.app</string>
-            </array>
             <key>catalogs</key>
             <array>
                 <string>testing</string>
@@ -25,13 +27,15 @@
             <key>description</key>
             <string>The Adobe DNG Converter is a free utility that enables you to easily convert camera-specific raw files from more than 600 cameras to the more universal DNG raw format.</string>
             <key>display_name</key>
-            <string>DNG Converter</string>
+            <string>Adobe DNG Converter</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>developer</key>
             <string>Adobe</string>
             <key>unattended_install</key>
             <true/>
+            <key>version</key>
+            <string>17.0</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
@@ -40,35 +44,6 @@
     <string>com.github.kfattic.download.AdobeDNGConverter</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>additional_pkginfo</key>
-                <dict>
-                    <key>version</key>
-                    <string>%version%</string>
-                </dict>
-            </dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-        </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>faux_root</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
-                <key>installs_item_paths</key>
-                <array>
-                    <string>/Applications/Adobe DNG Converter.app</string>
-                </array>
-            </dict>
-            <key>Processor</key>
-            <string>MunkiInstallsItemsCreator</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-        </dict>
         <dict>
             <key>Arguments</key>
             <dict>
